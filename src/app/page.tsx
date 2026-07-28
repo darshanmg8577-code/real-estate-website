@@ -1063,7 +1063,10 @@ function Navigation() {
               {/* Center connector/road */}
               <line x1="8" y1="14" x2="12" y2="14" stroke="#B8894A" strokeWidth="1" opacity="0.6" />
             </svg>
-            <span style={{ fontSize: '14px', fontWeight: 700, color: 'var(--linen)' }}>VCP</span>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 0, lineHeight: 1.1 }}>
+              <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--brass-light)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>VCP</span>
+              <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--linen)' }}>Vijayalaxmi C. Patil</span>
+            </div>
           </button>
 
           <div className="nav-links">
