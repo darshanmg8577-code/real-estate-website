@@ -292,15 +292,18 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.05;let
   transition:opacity 0.3s ease, transform 0.3s ease;
 }
 .nav-mobile.is-open{opacity:1;transform:translateY(0);pointer-events:auto;}
-.nav-mobile a{
+.nav-mobile a, .nav-mobile button{
   padding:14px 16px;
   border-radius:14px;
   font-size:15px;
   font-weight:600;
   color:var(--linen);
   transition:background 0.2s ease;
+  display:block;
+  width:100%;
+  text-align:left;
 }
-.nav-mobile a:hover{background:rgba(184,137,74,0.14);}
+.nav-mobile a:hover, .nav-mobile button:hover{background:rgba(184,137,74,0.14);}
 
 /* ============ HERO ============ */
 .hero{
