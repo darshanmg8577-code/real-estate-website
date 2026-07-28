@@ -229,35 +229,17 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.05;let
   box-shadow:0 24px 50px -18px rgba(0,0,0,0.6);
 }
 .nav-logo{
-  display:flex;align-items:center;gap:11px;
+  display:flex;align-items:center;gap:12px;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:15px;
+  color:var(--linen);
   flex-shrink:0;
 }
 .nav-logo-mark{
-  width:38px;height:38px;
+  width:32px;height:32px;
   position:relative;
   flex-shrink:0;
-}
-.nav-logo-text{
-  display:flex;
-  flex-direction:column;
-  line-height:1.22;
-  text-align:left;
-}
-.nav-logo-name{
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:14.5px;
-  color:var(--linen);
-  white-space:nowrap;
-}
-.nav-logo-sub{
-  font-family:var(--font-mono);
-  font-size:9px;
-  letter-spacing:0.07em;
-  text-transform:uppercase;
-  color:rgba(245,241,230,0.45);
-  white-space:nowrap;
-  margin-top:2px;
 }
 .nav-links{
   display:flex;
@@ -886,7 +868,8 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.05;let
   background:linear-gradient(90deg, transparent, var(--brass), transparent);
 }
 .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:50px;margin-bottom:60px;}
-.footer-logo{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--linen);margin-bottom:16px;}
+.footer-logo{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--linen);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.footer-logo-mark{width:28px;height:28px;flex-shrink:0;}
 .footer-logo span{color:var(--brass-light);}
 .footer p{color:rgba(245,241,230,0.5);font-size:14.5px;line-height:1.7;max-width:320px;}
 .footer h5{font-family:var(--font-mono);font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,241,230,0.4);margin-bottom:18px;}
@@ -1064,17 +1047,23 @@ function Navigation() {
             style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
           >
             <svg className="nav-logo-mark" viewBox="0 0 24 24">
-              <path
-                d="M2 9V2h7M23 9V2h-7M2 15v7h7M23 15v7h-7"
-                stroke="#B8894A"
-                strokeWidth={1.8}
-                fill="none"
-              />
+              {/* Architectural foundation/plot base */}
+              <rect x="2" y="16" width="20" height="2" fill="#B8894A" />
+              {/* Left building */}
+              <rect x="3" y="8" width="4" height="8" fill="none" stroke="#B8894A" strokeWidth="1.2" />
+              <line x1="5" y1="8" x2="5" y2="16" stroke="#B8894A" strokeWidth="0.8" />
+              <line x1="3" y1="11" x2="7" y2="11" stroke="#B8894A" strokeWidth="0.8" />
+              <line x1="3" y1="14" x2="7" y2="14" stroke="#B8894A" strokeWidth="0.8" />
+              {/* Right building (taller) */}
+              <rect x="13" y="5" width="4" height="11" fill="none" stroke="#B8894A" strokeWidth="1.2" />
+              <line x1="15" y1="5" x2="15" y2="16" stroke="#B8894A" strokeWidth="0.8" />
+              <line x1="13" y1="8" x2="17" y2="8" stroke="#B8894A" strokeWidth="0.8" />
+              <line x1="13" y1="11" x2="17" y2="11" stroke="#B8894A" strokeWidth="0.8" />
+              <line x1="13" y1="14" x2="17" y2="14" stroke="#B8894A" strokeWidth="0.8" />
+              {/* Center connector/road */}
+              <line x1="8" y1="14" x2="12" y2="14" stroke="#B8894A" strokeWidth="1" opacity="0.6" />
             </svg>
-            VCP{' '}
-            <span style={{ color: 'rgba(245,241,230,0.45)', fontWeight: 500, fontSize: 14, marginLeft: 2 }}>
-              Developers
-            </span>
+            <span style={{ fontSize: '14px', fontWeight: 700, color: 'var(--linen)' }}>VCP</span>
           </button>
 
           <div className="nav-links">
@@ -1402,12 +1391,12 @@ function AboutSection() {
 // Services
 // ---------------------------------------------------------------------------
 const SERVICES = [
-  { icon: LandPlot, tag: 'SVC \u00b7 01', title: 'Residential Layout Development', desc: 'Premium residential layouts with modern infrastructure and planning' },
-  { icon: HomeIcon, tag: 'SVC \u00b7 02', title: 'Residential Site Sales', desc: 'Prime residential plots in well-planned communities' },
-  { icon: Hammer, tag: 'SVC \u00b7 03', title: 'House Construction', desc: 'Complete construction from foundation to finish' },
-  { icon: DollarSign, tag: 'SVC \u00b7 04', title: 'Housing Loan Assistance', desc: 'Expert guidance for housing loan approvals' },
-  { icon: FileText, tag: 'SVC \u00b7 05', title: 'Legal Documentation', desc: 'Complete documentation and compliance support' },
-  { icon: KeyIcon, tag: 'SVC \u00b7 06', title: 'End-to-End Key Handover', desc: 'From plot purchase to key handover solutions' },
+  { icon: LandPlot, tag: 'SVC · 01', title: 'Residential Layout Development', desc: 'Premium residential layouts with modern infrastructure and planning' },
+  { icon: HomeIcon, tag: 'SVC · 02', title: 'Residential Site Sales', desc: 'Prime residential plots in well-planned communities' },
+  { icon: Hammer, tag: 'SVC · 03', title: 'House Construction', desc: 'Complete construction from foundation to finish' },
+  { icon: DollarSign, tag: 'SVC · 04', title: 'Housing Loan Assistance', desc: 'Expert guidance for housing loan approvals' },
+  { icon: FileText, tag: 'SVC · 05', title: 'Legal Documentation', desc: 'Complete documentation and compliance support' },
+  { icon: KeyIcon, tag: 'SVC · 06', title: 'End-to-End Key Handover', desc: 'From plot purchase to key handover solutions' },
 ];
 
 function ServicesSection() {
@@ -1981,6 +1970,19 @@ function Footer() {
         <div className="footer-grid">
           <Reveal>
             <div className="footer-logo">
+              <svg className="footer-logo-mark" viewBox="0 0 24 24">
+                <rect x="2" y="16" width="20" height="2" fill="#B8894A" />
+                <rect x="3" y="8" width="4" height="8" fill="none" stroke="#B8894A" strokeWidth="1.2" />
+                <line x1="5" y1="8" x2="5" y2="16" stroke="#B8894A" strokeWidth="0.8" />
+                <line x1="3" y1="11" x2="7" y2="11" stroke="#B8894A" strokeWidth="0.8" />
+                <line x1="3" y1="14" x2="7" y2="14" stroke="#B8894A" strokeWidth="0.8" />
+                <rect x="13" y="5" width="4" height="11" fill="none" stroke="#B8894A" strokeWidth="1.2" />
+                <line x1="15" y1="5" x2="15" y2="16" stroke="#B8894A" strokeWidth="0.8" />
+                <line x1="13" y1="8" x2="17" y2="8" stroke="#B8894A" strokeWidth="0.8" />
+                <line x1="13" y1="11" x2="17" y2="11" stroke="#B8894A" strokeWidth="0.8" />
+                <line x1="13" y1="14" x2="17" y2="14" stroke="#B8894A" strokeWidth="0.8" />
+                <line x1="8" y1="14" x2="12" y2="14" stroke="#B8894A" strokeWidth="1" opacity="0.6" />
+              </svg>
               VCP <span>Developers</span>
             </div>
             <p>Premium residential layouts and complete home construction solutions in Shivamogga.</p>
