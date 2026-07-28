@@ -229,17 +229,35 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.05;let
   box-shadow:0 24px 50px -18px rgba(0,0,0,0.6);
 }
 .nav-logo{
-  display:flex;align-items:center;gap:9px;
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:19px;
-  color:var(--linen);
+  display:flex;align-items:center;gap:11px;
   flex-shrink:0;
 }
 .nav-logo-mark{
-  width:26px;height:26px;
+  width:38px;height:38px;
   position:relative;
   flex-shrink:0;
+}
+.nav-logo-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.22;
+  text-align:left;
+}
+.nav-logo-name{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:14.5px;
+  color:var(--linen);
+  white-space:nowrap;
+}
+.nav-logo-sub{
+  font-family:var(--font-mono);
+  font-size:9px;
+  letter-spacing:0.07em;
+  text-transform:uppercase;
+  color:rgba(245,241,230,0.45);
+  white-space:nowrap;
+  margin-top:2px;
 }
 .nav-links{
   display:flex;
