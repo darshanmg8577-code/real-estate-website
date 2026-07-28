@@ -2058,25 +2058,274 @@ function FloatingButtons() {
 }
 
 // ---------------------------------------------------------------------------
+// Splash Screen
+// ---------------------------------------------------------------------------
+function SplashScreen({ onComplete }: { onComplete: () => void }) {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onComplete();
+    }, 4500);
+    return () => clearTimeout(timer);
+  }, [onComplete]);
+
+  return (
+    <motion.div
+      style={{
+        position: 'fixed',
+        inset: 0,
+        background: 'var(--ink)',
+        zIndex: 9999,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+      }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      {/* Background grid animation */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage:
+            'linear-gradient(rgba(184,137,74,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(184,137,74,0.08) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+          opacity: 0.5,
+        }}
+      />
+
+      {/* Animated logo container */}
+      <motion.div
+        style={{
+          position: 'relative',
+          zIndex: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: 32,
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        {/* Building blocks animation */}
+        <div style={{ position: 'relative', width: 120, height: 120 }}>
+          {/* Left building */}
+          <motion.div
+            style={{
+              position: 'absolute',
+              left: 10,
+              top: 40,
+              width: 30,
+              height: 60,
+              border: '2px solid #e3be86',
+            }}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, 1fr)',
+                gap: 4,
+                padding: 4,
+                height: '100%',
+              }}
+            >
+              {[...Array(8)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  style={{
+                    background: 'rgba(184,137,74,0.3)',
+                    border: '1px solid #b8894a',
+                  }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 + i * 0.08 }}
+                />
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right building (taller) */}
+          <motion.div
+            style={{
+              position: 'absolute',
+              right: 10,
+              top: 20,
+              width: 30,
+              height: 80,
+              border: '2px solid #e3be86',
+            }}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, 1fr)',
+                gap: 4,
+                padding: 4,
+                height: '100%',
+              }}
+            >
+              {[...Array(12)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  style={{
+                    background: 'rgba(184,137,74,0.3)',
+                    border: '1px solid #b8894a',
+                  }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 + i * 0.06 }}
+                />
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Base foundation */}
+          <motion.div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: 4,
+              background: '#b8894a',
+            }}
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          />
+        </div>
+
+        {/* Company name animation */}
+        <div style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
+          <motion.h1
+            style={{
+              fontSize: 32,
+              fontWeight: 700,
+              color: 'var(--linen)',
+              margin: 0,
+              marginBottom: 8,
+              fontFamily: 'Bricolage Grotesque, sans-serif',
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+          >
+            Vijayalaxmi C Patil
+          </motion.h1>
+          <motion.p
+            style={{
+              fontSize: 16,
+              color: '#e3be86',
+              margin: 0,
+              letterSpacing: '0.05em',
+              fontFamily: 'Manrope, sans-serif',
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
+          >
+            Developers & Promoters
+          </motion.p>
+        </div>
+
+        {/* Animated tagline */}
+        <motion.div
+          style={{
+            maxWidth: 300,
+            textAlign: 'center',
+            position: 'relative',
+            zIndex: 2,
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.8 }}
+        >
+          <p
+            style={{
+              fontSize: 14,
+              color: 'rgba(245,241,230,0.6)',
+              margin: 0,
+              lineHeight: 1.6,
+              fontFamily: 'Manrope, sans-serif',
+            }}
+          >
+            Building Dreams. Creating Communities.
+          </p>
+        </motion.div>
+
+        {/* Loading indicator */}
+        <motion.div
+          style={{
+            display: 'flex',
+            gap: 8,
+            position: 'relative',
+            zIndex: 2,
+            marginTop: 16,
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.2 }}
+        >
+          {[0, 1, 2].map((i) => (
+            <motion.div
+              key={i}
+              style={{
+                width: 8,
+                height: 8,
+                borderRadius: '50%',
+                background: '#b8894a',
+              }}
+              animate={{ scale: [1, 1.5, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 2.2 + i * 0.15,
+                repeat: Infinity,
+              }}
+            />
+          ))}
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
 export default function Home() {
+  const [showSplash, setShowSplash] = useState(true);
+
   return (
     <main className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <GlobalStyles />
-      <Navigation />
-      <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <WhyChooseUsSection />
-      <ProcessSection />
-      <StatisticsSection />
-      <GallerySection />
-      <LeadershipSection />
-      <TestimonialsSection />
-      <ContactSection />
-      <Footer />
-      <FloatingButtons />
+      <AnimatePresence>
+        {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
+      </AnimatePresence>
+      {!showSplash && (
+        <>
+          <Navigation />
+          <HeroSection />
+          <AboutSection />
+          <ServicesSection />
+          <WhyChooseUsSection />
+          <ProcessSection />
+          <StatisticsSection />
+          <GallerySection />
+          <LeadershipSection />
+          <TestimonialsSection />
+          <ContactSection />
+          <Footer />
+          <FloatingButtons />
+        </>
+      )}
     </main>
   );
 }
