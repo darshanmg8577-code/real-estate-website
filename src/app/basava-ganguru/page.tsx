@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { Phone, MessageCircle, Menu, X } from 'lucide-react';
 
 export default function Home() {
@@ -16,7 +15,7 @@ export default function Home() {
     }, []);
 
     return (
-        <div style={{ minHeight: '100vh', background: '#faf7ef', fontFamily: "'Manrope', sans-serif" }}>
+        <div style={{ minHeight: '100vh', background: '#faf7ef' }}>
             {/* Navigation */}
             <nav
                 style={{
@@ -39,20 +38,11 @@ export default function Home() {
                         alignItems: 'center',
                     }}
                 >
-                    {/* Logo */}
                     <div style={{ color: '#f5f1e6', fontWeight: 'bold', fontSize: '18px' }}>
                         Basava Ganguru
                     </div>
 
-                    {/* Desktop Menu */}
-                    <div
-                        style={{
-                            display: 'flex',
-                            gap: '30px',
-                            alignItems: 'center',
-                        }}
-                        className="hidden md:flex"
-                    >
+                    <div style={{ display: 'flex', gap: '30px', alignItems: 'center' }} className="hidden md:flex">
                         <a href="#home" style={{ color: '#f5f1e6', textDecoration: 'none' }}>
                             Home
                         </a>
@@ -67,7 +57,6 @@ export default function Home() {
                         </a>
                     </div>
 
-                    {/* CTA Button Desktop */}
                     <a
                         href="tel:+919980061727"
                         style={{
@@ -87,7 +76,6 @@ export default function Home() {
                         Call Now
                     </a>
 
-                    {/* Mobile Menu Button */}
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#f5f1e6' }}
@@ -97,7 +85,6 @@ export default function Home() {
                     </button>
                 </div>
 
-                {/* Mobile Menu */}
                 {mobileMenuOpen && (
                     <div
                         style={{
@@ -165,7 +152,6 @@ export default function Home() {
                             32 Premium plots in Shivamogga, Karnataka. Starting from ₹2,300/sq.ft with complete home construction services.
                         </p>
 
-                        {/* CTA Buttons */}
                         <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '60px' }}>
                             <a
                                 href="tel:+919980061727"
@@ -207,7 +193,6 @@ export default function Home() {
                             </a>
                         </div>
 
-                        {/* Stats */}
                         <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap' }}>
                             <div>
                                 <div style={{ fontSize: '28px', fontWeight: 'bold', color: '#e3be86' }}>32</div>
