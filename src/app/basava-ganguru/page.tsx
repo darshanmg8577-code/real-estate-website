@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Phone, MessageCircle, Menu, X } from 'lucide-react';
 
 export default function Home() {
@@ -38,11 +39,20 @@ export default function Home() {
                         alignItems: 'center',
                     }}
                 >
+                    {/* Logo */}
                     <div style={{ color: '#f5f1e6', fontWeight: 'bold', fontSize: '18px' }}>
                         Basava Ganguru
                     </div>
 
-                    <div style={{ display: 'flex', gap: '30px', alignItems: 'center' }} className="hidden md:flex">
+                    {/* Desktop Menu */}
+                    <div
+                        style={{
+                            display: 'flex',
+                            gap: '30px',
+                            alignItems: 'center',
+                        }}
+                        className="hidden md:flex"
+                    >
                         <a href="#home" style={{ color: '#f5f1e6', textDecoration: 'none' }}>
                             Home
                         </a>
@@ -57,6 +67,7 @@ export default function Home() {
                         </a>
                     </div>
 
+                    {/* CTA Button Desktop */}
                     <a
                         href="tel:+919980061727"
                         style={{
@@ -76,6 +87,7 @@ export default function Home() {
                         Call Now
                     </a>
 
+                    {/* Mobile Menu Button */}
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#f5f1e6' }}
@@ -85,6 +97,7 @@ export default function Home() {
                     </button>
                 </div>
 
+                {/* Mobile Menu */}
                 {mobileMenuOpen && (
                     <div
                         style={{
@@ -137,7 +150,7 @@ export default function Home() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h1 style={{ fontSize: 'clamp(32px, 6vw, 64px)', marginBottom: '20px', lineHeight: 1.2, fontWeight: 'bold' }}>
+                        <h1 style={{ fontSize: 'clamp(32px, 6vw, 64px)', marginBottom: '20px', lineHeight: 1.2 }}>
                             Premium Residential <span style={{ color: '#e3be86' }}>Layout</span>
                         </h1>
                         <p
@@ -152,6 +165,7 @@ export default function Home() {
                             32 Premium plots in Shivamogga, Karnataka. Starting from ₹2,300/sq.ft with complete home construction services.
                         </p>
 
+                        {/* CTA Buttons */}
                         <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '60px' }}>
                             <a
                                 href="tel:+919980061727"
@@ -193,6 +207,7 @@ export default function Home() {
                             </a>
                         </div>
 
+                        {/* Stats */}
                         <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap' }}>
                             <div>
                                 <div style={{ fontSize: '28px', fontWeight: 'bold', color: '#e3be86' }}>32</div>
@@ -227,7 +242,7 @@ export default function Home() {
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                     >
-                        <h2 style={{ fontSize: '40px', marginBottom: '20px', fontWeight: 'bold' }}>About Basava Ganguru</h2>
+                        <h2 style={{ fontSize: '40px', marginBottom: '20px' }}>About Basava Ganguru</h2>
                         <p style={{ fontSize: '16px', lineHeight: 1.8, maxWidth: '800px', color: '#555' }}>
                             Vijayalaxmi C Patil Developers & Promoters presents Basava Ganguru – a premium residential layout with 32 carefully planned plots. Located in Shivamogga, Karnataka, this development offers the perfect blend of modern living and traditional values.
                         </p>
@@ -245,7 +260,7 @@ export default function Home() {
                 }}
             >
                 <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                    <h2 style={{ fontSize: '40px', marginBottom: '40px', fontWeight: 'bold' }}>Plot Details</h2>
+                    <h2 style={{ fontSize: '40px', marginBottom: '40px' }}>Plot Details</h2>
 
                     <div
                         style={{
