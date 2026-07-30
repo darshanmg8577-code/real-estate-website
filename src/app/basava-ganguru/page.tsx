@@ -16,7 +16,7 @@ export default function Home() {
     }, []);
 
     return (
-        <div style={{ minHeight: '100vh', background: '#faf7ef' }}>
+        <div style={{ minHeight: '100vh', background: '#faf7ef', fontFamily: "'Manrope', sans-serif" }}>
             {/* Navigation */}
             <nav
                 style={{
@@ -150,7 +150,7 @@ export default function Home() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h1 style={{ fontSize: 'clamp(32px, 6vw, 64px)', marginBottom: '20px', lineHeight: 1.2 }}>
+                        <h1 style={{ fontSize: 'clamp(32px, 6vw, 64px)', marginBottom: '20px', lineHeight: 1.2, fontWeight: 'bold' }}>
                             Premium Residential <span style={{ color: '#e3be86' }}>Layout</span>
                         </h1>
                         <p
@@ -242,7 +242,7 @@ export default function Home() {
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                     >
-                        <h2 style={{ fontSize: '40px', marginBottom: '20px' }}>About Basava Ganguru</h2>
+                        <h2 style={{ fontSize: '40px', marginBottom: '20px', fontWeight: 'bold' }}>About Basava Ganguru</h2>
                         <p style={{ fontSize: '16px', lineHeight: 1.8, maxWidth: '800px', color: '#555' }}>
                             Vijayalaxmi C Patil Developers & Promoters presents Basava Ganguru – a premium residential layout with 32 carefully planned plots. Located in Shivamogga, Karnataka, this development offers the perfect blend of modern living and traditional values.
                         </p>
@@ -260,7 +260,7 @@ export default function Home() {
                 }}
             >
                 <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                    <h2 style={{ fontSize: '40px', marginBottom: '40px' }}>Plot Details</h2>
+                    <h2 style={{ fontSize: '40px', marginBottom: '40px', fontWeight: 'bold' }}>Plot Details</h2>
 
                     <div
                         style={{
