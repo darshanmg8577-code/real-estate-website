@@ -1,17 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700\u0026family=Manrope:wght@400;500;600;700\u0026family=IBM+Plex+Mono:wght@400;500\u0026display=swap');
-
-:root {
-    --brass: #b8894a;
-    --brass-light: #e3be86;
-    --brass-dark: #8f6a38;
-    --ink: #0b1120;
-    --ink-soft: #131b30;
-    --linen: #f5f1e6;
-    --linen-soft: #ece5d4;
-    --paper: #faf7ef;
-    --graphite: #2b2a26;
-    --mist: #e7e1d2;
-}
+/* Basava Ganguru Project Styles */
 
 * {
     margin: 0;
@@ -24,9 +11,9 @@ html {
 }
 
 body {
-    font-family: 'Manrope', sans-serif;
-    background-color: var(--paper);
-    color: var(--graphite);
+    font-family: var(--font-body, 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+    background: #faf7ef;
+    color: #0b1120;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -50,54 +37,99 @@ button {
     color: inherit;
 }
 
+ul {
+    list-style: none;
+}
+
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
-    font-family: 'Bricolage Grotesque', sans-serif;
+h4 {
+    font-family: var(--font-display, 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
     font-weight: 600;
-    line-height: 1.1;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    line-height: 1.05;
+    letter-spacing: -0.02em;
 }
 
 :focus-visible {
-    outline: 2px solid var(--brass);
+    outline: 2px solid #b8894a;
     outline-offset: 3px;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Utility Classes */
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+.gap-8 {
+    gap: 2rem;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.p-4 {
+    padding: 1rem;
+}
+
+.rounded {
+    border-radius: 0.5rem;
+}
+
+.shadow {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    body {
-        font-size: 14px;
+    .container {
+        padding: 0 20px;
     }
 
-    h1 {
-        font-size: 24px;
+    .hidden-mobile {
+        display: none !important;
     }
+}
 
-    h2 {
-        font-size: 20px;
+@media (min-width: 768px) {
+    .mobile-only {
+        display: none !important;
     }
 }

@@ -18,7 +18,7 @@
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "incremental": true,
     "plugins": [
       {
@@ -29,7 +29,8 @@
       "@/*": [
         "./*"
       ]
-    }
+    },
+    "allowJs": true
   },
   "include": [
     "next-env.d.ts",
